@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+
+  <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-firestore.js"></script>
+  
+  <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+      apiKey: "AIzaSyB0Sskf0ZH0k7PWJrsrxpk7nE4Lu_EzMY8",
+      authDomain: "vue-todo-2f323.firebaseapp.com",
+      databaseURL: "https://vue-todo-2f323.firebaseio.com",
+      projectId: "vue-todo-2f323",
+      storageBucket: "vue-todo-2f323.appspot.com",
+      messagingSenderId: "156071056601",
+      appId: "1:156071056601:web:2f02d25fbc3b4cd896dac8",
+      measurementId: "G-LZZ7DR097E"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    var db = firebase.firestore();
+  </script>
+</body>
+</html>
