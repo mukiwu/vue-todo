@@ -1,38 +1,58 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <div>
-      <p>
-        If Element is successfully added to this project, you'll see an
-        <code v-text="'<el-button>'"></code>
-        below
-      </p>
-      <el-button>el-button</el-button>
-      <el-input v-model="input" placeholder="请输入内容"></el-input>
-
-    </div>
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <nav>
+      <section>
+        <ul>
+          <li><router-link to="/">My Tasks</router-link></li>
+          <li><router-link to="/progress">In Progress</router-link></li>
+          <li><router-link to="/complete">Completed</router-link></li>
+        </ul>
+      </section>
+    </nav>
+    <section><router-view /></section>
+    
   </div>
 </template>
 
-<script>
-import HelloWorld from './components/HelloWorld.vue'
-
-export default {
-  name: 'app',
-  components: {
-    HelloWorld
-  }
+<style lang="scss">
+body {
+  margin: 0;
+  padding: 0;
+  background: #e1e1e1;
+	font-family: arial, sans-serif;
+	font-size: 16px;
+	line-height: 160%;
 }
-</script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+section {
+  width: 620px;
+	margin: 0 auto;
+}
+
+nav {
+  background: #4a90e2;
+	font-size: 24px;
+	color: #00408b;
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+  li {
+    display:inline-block
+  }
+	a {
+		display: inline-block;
+		text-align: center;
+		padding: 24px 0 19px 0;
+		border-bottom: 5px solid #4a90e2;
+		width: 174px;
+		margin: 0 10px;
+    text-decoration: none;
+		&.current, &:hover {
+			color: #fff;
+			cursor: pointer;
+			border-bottom: 5px solid #00408b;
+		}
+	}
 }
 </style>

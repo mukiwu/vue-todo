@@ -3,13 +3,10 @@ import { firestorePlugin } from 'vuefire'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-import { Form, FormItem } from 'element-ui';
+import './plugins/element.js'
 
 Vue.config.productionTip = false
 Vue.use(firestorePlugin)
-
-Vue.use(Form)
-Vue.use(FormItem)
 
 new Vue({
   router,
