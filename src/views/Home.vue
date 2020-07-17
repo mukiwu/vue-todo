@@ -20,27 +20,17 @@
 				</el-button-group>
       </div>
     </el-form>
-    <ul class="lists">
-      <li v-for="(item, index) in lists" :key="index" :class="{ 'status_star' : item.status_star }">
-        <div class="lists__hr">
-          <el-checkbox :id="'todo-' + index" v-model="item.status_checked"><h2 class="lists__title">{{ item.title }}</h2></el-checkbox>
-          <el-button type="warning" v-model="item.status_star" :icon="icon" circle @click="onStarSwitch(index)"></el-button>
-          <el-button type="primary" icon="el-icon-edit" circle></el-button>
-        </div>
-        <p class="lists__content" v-html="$options.filters.break(item.content)"></p>
-        <i class="el-icon-alarm-clock lists__time">{{ item.deadline | timeStamp | dateFormat('YYYY.MM.DD HH:mm') }}</i>
-      </li>
-    </ul>
+    <lists :lists="lists"></lists>
   </div>
 </template>
 
 <script>
 import {db} from '../db'
-import Filter from '../filters'
+import lists from './components/lists'
 
 export default {
   name: 'Home',
-  mixins: [Filter],
+  components: { lists },
   data() {
     return {
       todoShow: false,
@@ -49,22 +39,11 @@ export default {
         deadline: null,
         content: null
       },
-      lists: [],
-      icon: 'el-icon-star-off'
+      lists: []
     }
   },
   firestore: {
     lists: db.collection('lists'),
-  },
-  methods: {
-    onStarSwitch(id) {
-      this.lists[id].status_star = !this.lists[id].status_star
-      if (this.lists[id].status_star) {
-        this.icon = 'el-icon-star-on'
-      } else {
-        this.icon = 'el-icon-star-off'
-      }
-    }
   }
 }
 </script>
