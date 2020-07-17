@@ -11,7 +11,7 @@ cd dist
 
 git init
 git add -A
-git commit -m 'deploy'
+git commit -m 'deploy gh-pages'
 
 # 部署到 https://<USERNAME>.github.io/<REPO>
 git push -f git@github.com:mukiwu/vue-todo.git master:gh-pages
