@@ -7,7 +7,7 @@
       </div>
       <div class="form__content" v-if="todoShow">
         <el-form-item label="到期日">
-          <el-date-picker type="datetime" placeholder="選擇日期時間" v-model="form.deadline" value-format="yyyy-MM-dd HH:mm:ss"></el-date-picker>
+          <el-date-picker type="datetime" placeholder="選擇日期時間" v-model="form.deadline"></el-date-picker>
         </el-form-item>
         <el-form-item label="詳細內容">
           <el-input type="textarea" v-model="form.content"></el-input>
@@ -16,7 +16,7 @@
       <div class="form__action" v-if="todoShow">
         <el-button-group>
 					<el-button @click="todoShow=false">X 取消</el-button>
-					<el-button type="primary">+ 新增任務</el-button>
+					<el-button type="primary" @click="onAddList">+ 新增任務</el-button>
 				</el-button-group>
       </div>
     </el-form>
@@ -44,6 +44,19 @@ export default {
   },
   firestore: {
     lists: db.collection('lists'),
+  },
+  methods: {
+    onAddList: function() {
+      db.collection('lists').doc().set({
+        title: this.form.title,
+        deadline: this.form.deadline,
+        content: this.form.content,
+        status_checked: false,
+        status_star: false
+      }).then(function() {
+        console.log('set data successful')
+      })
+    }
   }
 }
 </script>
