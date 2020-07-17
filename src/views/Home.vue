@@ -47,7 +47,8 @@ export default {
   },
   methods: {
     onAddList: function() {
-      db.collection('lists').doc().set({
+      let length = (this.lists.length + 1).toString()
+      db.collection('lists').doc(length).set({
         title: this.form.title,
         deadline: this.form.deadline,
         content: this.form.content,
