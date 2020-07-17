@@ -42,13 +42,14 @@ nav {
   }
 	a {
 		display: inline-block;
+    color: #00408b;
 		text-align: center;
 		padding: 24px 0 19px 0;
 		border-bottom: 5px solid #4a90e2;
 		width: 174px;
 		margin: 0 10px;
     text-decoration: none;
-		&.current, &:hover {
+		&.router-link-exact-active, &:hover {
 			color: #fff;
 			cursor: pointer;
 			border-bottom: 5px solid #00408b;
