@@ -35,3 +35,12 @@
   text-align: right;
   padding-right: 32px;
 }
+
+@media only screen and (max-width: 620px) {
+  .lists__hr, .el-checkbox {
+    display: block;
+  }
+  .lists__title {
+    width: auto;
+  }
+}
