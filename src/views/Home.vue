@@ -43,7 +43,7 @@ export default {
     }
   },
   firestore: {
-    lists: db.collection('lists').orderBy('create_time','desc')
+    lists: db.collection('lists').orderBy('create_time','asc')
   },
   methods: {
     onAddList: function() {
