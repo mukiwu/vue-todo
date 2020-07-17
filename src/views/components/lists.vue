@@ -108,7 +108,7 @@ export default {
       let id = this.lists[index].id
       db.collection('lists').doc(id).update({
         title: this.lists[index].title,
-        deadline: this.lists[index].deadline,
+        deadline: this.deadlineConvert,
         content: this.lists[index].content,
         modify_time: new Date()
       }).then(() => {
