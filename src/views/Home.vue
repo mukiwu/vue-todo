@@ -53,9 +53,14 @@ export default {
         content: this.form.content,
         status_checked: false,
         status_star: false
-      }).then(function() {
-        console.log('set data successful')
+      }).then(() => {
+        this.$message('新增成功')
+        this.resetForm()
       })
+    },
+    resetForm() {
+      this.todoShow = false
+      this.form = { }
     }
   }
 }
