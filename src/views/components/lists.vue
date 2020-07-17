@@ -14,6 +14,7 @@
 </template>
 
 <script>
+import {db} from '../../db'
 import Filter from '../../filters'
 
 export default {
@@ -22,18 +23,25 @@ export default {
       icon: 'el-icon-star-off'
     }
   },
-  mixins: [Filter],
+  mixins: [db, Filter],
   props: {
     lists: Array
   },
   methods: {
     onStarSwitch(id) {
       this.lists[id].status_star = !this.lists[id].status_star
+      let idStr = id.toString()
+      db.collection('lists').doc(idStr).update({
+        status_star: this.lists[id].status_star
+      }).then(() => {
+        this.$message('新增成功')
+      })
       if (this.lists[id].status_star) {
         this.icon = 'el-icon-star-on'
       } else {
         this.icon = 'el-icon-star-off'
       }
+      
     }
   }
 }

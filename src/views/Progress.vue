@@ -17,7 +17,7 @@ export default {
     }
   },
   firestore: {
-    lists: db.collection('lists').where('status_checked', '==', false)
+    lists: db.collection('lists').where('status_checked', '==', false).orderBy('create_time','desc')
   }
 }
 </script>

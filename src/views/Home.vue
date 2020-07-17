@@ -43,15 +43,15 @@ export default {
     }
   },
   firestore: {
-    lists: db.collection('lists'),
+    lists: db.collection('lists').orderBy('create_time','desc')
   },
   methods: {
     onAddList: function() {
-      let length = (this.lists.length + 1).toString()
-      db.collection('lists').doc(length).set({
+      db.collection('lists').doc().set({
         title: this.form.title,
         deadline: this.form.deadline,
         content: this.form.content,
+        create_time: new Date(),
         status_checked: false,
         status_star: false
       }).then(() => {
