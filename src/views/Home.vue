@@ -16,7 +16,7 @@
       <div class="form__action" v-if="todoShow">
         <el-button-group>
 					<el-button @click="todoShow=false">X 取消</el-button>
-					<el-button type="primary" @click="onAddList">+ 新增任務</el-button>
+					<el-button type="primary" @click="onAddList">+ 新增清單</el-button>
 				</el-button-group>
       </div>
     </el-form>
