@@ -47,16 +47,17 @@ export default {
   },
   methods: {
     onAddList: function() {
-      db.collection('lists').doc().set({
+      const newTask = {
         title: this.form.title,
         deadline: this.form.deadline,
         content: this.form.content,
         create_time: new Date(),
         status_checked: false,
         status_star: false
-      }).then(() => {
+      }
+      this.resetForm()
+      db.collection('lists').doc().set(newTask).then(() => {
         this.$message('新增成功')
-        this.resetForm()
       })
     },
     resetForm() {
