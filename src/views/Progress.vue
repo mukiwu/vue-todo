@@ -1,5 +1,9 @@
 <template>
   <div class="progress">
+    <div v-if="lists.length === 0">
+      <el-divider></el-divider>
+      <el-alert title="沒有進行中的待辦事項" type="info" effect="dark" :closable="false" center></el-alert>
+    </div>
     <lists :lists="lists"></lists>
   </div>
 </template>
@@ -13,7 +17,7 @@ export default {
   components: { lists },
   data() {
     return {
-      lists: [],
+      lists: []
     }
   },
   firestore: {

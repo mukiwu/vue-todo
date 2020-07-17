@@ -1,5 +1,9 @@
 <template>
   <div class="complete">
+    <div v-if="lists.length === 0">
+      <el-divider></el-divider>
+      <el-alert title="尚未有完成的待辦事項" type="info" effect="dark" :closable="false" center></el-alert>
+    </div>
     <lists :lists="lists"></lists>
   </div>
 </template>
@@ -13,7 +17,7 @@ export default {
   components: { lists },
   data() {
     return {
-      lists: [],
+      lists: []
     }
   },
   firestore: {
