@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Progress from '../views/Progress.vue'
 import Complete from '../views/Complete.vue'
+import Edit from '../views/Edit.vue'
 
 Vue.use(VueRouter)
 
@@ -21,7 +22,12 @@ Vue.use(VueRouter)
     path: '/complete',
     name: 'Complete',
     component: Complete
-  }
+  },
+  {
+    path: '/edit/:id',
+    name: 'Edit',
+    component: Edit
+  },
 ]
 
 const router = new VueRouter({
